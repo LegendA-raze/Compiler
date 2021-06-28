@@ -50,7 +50,7 @@ class ParserExpr:
             return UnaryOperationNode(lexem, operand)
         if lexem.get_value() == "(":
             left = self.parse_expr()
-            lexem = lexer.current()
+            lexem = self.lexer.current()
             if lexem.get_value() != ")":
                 raise SyntaxError(f"{lexem.get_coord()}        Expected ')'")
             self.lexer.next()
